@@ -35,8 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
           icon: "auto_awesome",
           confirmText: "Começar Exploração",
           onConfirm: () => {
-            // Aqui você define para onde o usuário vai após fechar o modal
-            window.location.href = "../pages/home.html";
+            // Pega o caminho atual para saber se estamos no GitHub ou Local
+            const isGithub = window.location.hostname.includes("github.io");
+
+            if (isGithub) {
+              // No GitHub Pages, precisamos garantir que o nome do repositório esteja no caminho
+              window.location.href = "/SensualTouch/pages/home.html";
+            } else {
+              // No seu computador (Local), geralmente a pasta pages está na raiz do projeto
+              window.location.href = "./pages/home.html";
+            }
           },
         });
       }, 1500);
