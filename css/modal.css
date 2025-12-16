@@ -1,0 +1,36 @@
+/* Efeito de Overlay com desfoque profundo */
+.st-modal-overlay {
+    background: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(12px);
+    transition: opacity 0.3s ease;
+}
+
+/* Card com gradiente sutil e borda dourada */
+.st-modal-card {
+    background: linear-gradient(165deg, #1A1A1A 0%, #080808 100%);
+    border: 1px solid rgba(198, 168, 124, 0.15);
+    box-shadow: 0 0 40px rgba(74, 4, 4, 0.3);
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.st-modal-active .st-modal-card {
+    transform: translateY(0);
+}
+
+/* Ícone de destaque */
+.st-modal-icon-bg {
+    background: radial-gradient(circle, rgba(74, 4, 4, 0.2) 0%, transparent 70%);
+}
+
+/* Botão Primário Estilizado */
+.st-modal-btn {
+    background: linear-gradient(135deg, #4A0404 0%, #2A0202 100%);
+    border: 1px solid rgba(198, 168, 124, 0.3);
+    transition: all 0.3s ease;
+}
+
+.st-modal-btn:hover {
+    box-shadow: 0 0 15px rgba(198, 168, 124, 0.2);
+    transform: scale(1.02);
+}

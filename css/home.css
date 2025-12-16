@@ -1,0 +1,32 @@
+/* Efeito de Vidro e Transição para o Menu Lateral */
+.sidebar-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  transition: opacity 0.4s ease;
+}
+
+.sidebar-menu {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-right: 1px solid rgba(198, 168, 124, 0.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Estado Fechado (Escondido à esquerda) */
+.sidebar-closed {
+  transform: translateX(-100%);
+}
+
+/* Estado Aberto (50% da largura) */
+.sidebar-open {
+  transform: translateX(0);
+}
+
+/* Estilização para o Feed e Botões */
+.category-active {
+  @apply bg-primary text-white shadow-lg border-primary;
+}
+
+.category-inactive {
+  @apply bg-white dark:bg-[#1A1A1A] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700;
+}

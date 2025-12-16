@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Explorar Categorias - SensualTouch 👣</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script src="../js/tailwind-config.js"></script>
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+  </head>
+  <body
+    class="bg-background-dark text-text-dark font-sans antialiased min-h-screen pb-24 overflow-x-hidden"
+  >
+    <div class="bg-ambient"></div>
+
+    <div
+      id="sidebarOverlay"
+      class="fixed inset-0 z-[100] hidden sidebar-overlay opacity-0"
+    >
+      <nav
+        id="sidebar"
+        class="sidebar-menu w-[65%] md:w-[30%] lg:w-[20%] h-full flex flex-col sidebar-closed relative overflow-y-auto"
+      >
+        <div
+          class="p-6 border-b border-gray-800 flex justify-between items-center bg-black/20"
+        >
+          <h2
+            class="font-display font-bold text-secondary text-xl italic tracking-tighter"
+          >
+            Sensual<span class="text-white">Touch</span>
+          </h2>
+          <button
+            id="closeMenu"
+            class="text-gray-500 hover:text-white transition-colors"
+          >
+            <span class="material-icons">close</span>
+          </button>
+        </div>
+
+        <div class="p-6 flex items-center gap-3 border-b border-gray-900/50">
+          <img
+            src="https://i.pravatar.cc/100?img=5"
+            class="w-10 h-10 rounded-full border border-secondary/50"
+            alt="Avatar"
+          />
+          <div class="overflow-hidden">
+            <p class="text-xs font-bold text-white truncate">Minha Conta</p>
+            <p class="text-[10px] text-secondary font-medium tracking-wide">
+              Membro Gold
+            </p>
+          </div>
+        </div>
+
+        <ul class="flex-1 p-4 space-y-2">
+          <p
+            class="text-[10px] uppercase tracking-[0.2em] text-gray-600 font-bold px-2 mb-4 mt-2"
+          >
+            Navegação Principal
+          </p>
+          <li>
+            <a
+              href="home.html"
+              class="flex items-center gap-4 px-4 py-3 text-gray-300 hover:bg-primary/20 hover:text-secondary rounded-xl transition-all group"
+            >
+              <span
+                class="material-icons-outlined text-gray-500 group-hover:text-secondary"
+                >home</span
+              >
+              <span class="text-sm font-medium">Início</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./category.html"
+              class="flex items-center gap-4 px-4 py-3 text-secondary bg-primary/10 border border-primary/20 rounded-xl transition-all"
+            >
+              <span class="material-icons-outlined">auto_awesome</span>
+              <span class="text-sm font-bold">Categorias</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./checkout.html"
+              class="flex items-center gap-4 px-4 py-3 text-gray-300 hover:bg-primary/20 hover:text-secondary rounded-xl transition-all group"
+            >
+              <span
+                class="material-icons-outlined text-gray-500 group-hover:text-secondary"
+                >shopping_bag</span
+              >
+              <span class="text-sm font-medium">Meu Checkout</span>
+            </a>
+          </li>
+          <div class="my-4 border-t border-gray-900"></div>
+          <p
+            class="text-[10px] uppercase tracking-[0.2em] text-gray-600 font-bold px-2 mb-4"
+          >
+            Área do Criador
+          </p>
+          <li>
+            <a
+              href="../pages/creator-registration.html"
+              class="flex items-center gap-4 px-4 py-3 bg-secondary/5 text-secondary border border-secondary/20 rounded-xl transition-all hover:bg-secondary/10"
+            >
+              <span class="material-icons-outlined">diamond</span>
+              <span class="text-sm font-bold">Conta Influencer</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="p-4 border-t border-gray-900 bg-black/10">
+          <button
+            onclick="STModal.show({title:'Sair?', message:'Deseja realmente encerrar sua sessão?', icon:'logout', confirmText:'Sair'})"
+            class="w-full flex items-center gap-4 px-4 py-3 text-red-500/70 hover:text-red-500 hover:bg-red-500/5 rounded-xl transition-all"
+          >
+            <span class="material-icons-outlined text-sm">logout</span>
+            <span class="text-xs font-bold uppercase tracking-widest"
+              >Sair da Conta</span
+            >
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div
+      class="w-full max-w-md md:max-w-5xl lg:max-w-7xl mx-auto min-h-screen relative flex flex-col transition-all"
+    >
+      <header
+        class="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-3">
+          <button
+            id="menuToggle"
+            class="text-gray-800 dark:text-white hover:text-primary transition-colors"
+          >
+            <span class="material-icons text-3xl">menu</span>
+          </button>
+          <h1
+            class="font-serif text-xl md:text-2xl font-bold text-white italic"
+          >
+            Sensual<span class="text-primary font-normal">Touch</span>
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="hidden md:flex relative w-64">
+            <input
+              type="text"
+              class="w-full bg-white/5 border-none rounded-full py-2 pl-10 text-xs text-white focus:ring-1 focus:ring-primary"
+              placeholder="Buscar..."
+            />
+            <span
+              class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
+              >search</span
+            >
+          </div>
+          <button
+            class="relative p-2 text-gray-400 hover:text-primary transition-colors"
+          >
+            <span class="material-icons">notifications_none</span>
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-background-dark"
+            ></span>
+          </button>
+          <div
+            class="w-9 h-9 rounded-full border-2 border-primary p-[1px] cursor-pointer hover:scale-105 transition-transform"
+          >
+            <img
+              src="https://i.pravatar.cc/100?img=13"
+              class="w-full h-full rounded-full object-cover"
+            />
+          </div>
+        </div>
+      </header>
+
+      <div class="px-6 py-6 space-y-5">
+        <div class="relative group max-w-2xl mx-auto w-full md:hidden">
+          <span
+            class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors"
+            >search</span
+          >
+          <input
+            class="w-full pl-12 pr-4 py-4 bg-white/5 border-none rounded-2xl text-sm focus:ring-1 focus:ring-primary text-white placeholder-gray-500"
+            placeholder="Pesquisar..."
+            type="text"
+          />
+        </div>
+
+        <div
+          class="flex gap-2 overflow-x-auto pb-2 hide-scrollbar md:justify-center"
+        >
+          <button
+            class="px-6 py-2 rounded-full wine-gradient-bg text-white text-[10px] font-bold uppercase tracking-widest shadow-lg"
+          >
+            Todos
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:border-primary transition-all"
+          >
+            Populares
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:border-primary transition-all"
+          >
+            Novos
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:border-primary transition-all"
+          >
+            Verificados
+          </button>
+        </div>
+      </div>
+
+      <div class="px-6 md:px-10 mb-10">
+        <div
+          class="relative w-full h-52 md:h-80 rounded-[2.5rem] overflow-hidden shadow-2xl group"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end p-6 md:p-10"
+          >
+            <span
+              class="px-3 py-1 bg-primary/20 backdrop-blur-md text-primary text-[10px] uppercase tracking-[0.3em] font-bold rounded mb-3 w-fit border border-primary/30"
+              >Premium Selection</span
+            >
+            <h2
+              class="text-white font-serif text-3xl md:text-5xl font-bold italic mb-1"
+            >
+              Veludo & Seda
+            </h2>
+            <p class="text-gray-300 text-xs md:text-sm font-light">
+              Coleções exclusivas para assinantes Gold.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section class="px-6 md:px-10 mb-10">
+        <div
+          class="flex justify-between items-end mb-6 border-l-2 border-primary pl-4"
+        >
+          <div>
+            <h3 class="text-xl font-serif font-bold text-white italic">
+              Elegant Hands
+            </h3>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">
+              Delicate touch and artistic poses
+            </p>
+          </div>
+          <a
+            class="text-[10px] font-bold text-primary hover:tracking-widest transition-all uppercase flex items-center gap-1"
+            href="#"
+            >Ver Tudo
+            <span class="material-icons text-sm">chevron_right</span></a
+          >
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div
+            class="group bg-surface-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/40 transition-all duration-500 shadow-xl"
+          >
+            <div class="aspect-[4/5] relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1543132220-4bf3de6e10ae?q=80&w=400"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <button
+                class="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white hover:text-primary"
+              >
+                <span class="material-icons text-sm">favorite_border</span>
+              </button>
+              <div
+                class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black to-transparent p-3 pt-10"
+              >
+                <div class="flex justify-between items-center">
+                  <span
+                    class="flex items-center gap-1 text-[10px] text-primary font-bold"
+                    ><span class="material-icons text-[12px]">star</span>
+                    4.9</span
+                  >
+                  <span
+                    class="bg-primary/10 border border-primary/20 backdrop-blur-md px-2 py-0.5 rounded text-[8px] text-primary uppercase font-bold"
+                    >Video</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <h4 class="font-serif font-bold text-white truncate italic">
+                Sophia's Touch
+              </h4>
+              <div class="flex justify-between items-center mt-2">
+                <p class="text-[9px] text-gray-500">@sophia_art</p>
+                <span class="text-primary font-bold text-xs">$15.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-10 mb-24">
+        <div
+          class="flex justify-between items-end mb-6 border-l-2 border-primary pl-4"
+        >
+          <div>
+            <h3 class="text-xl font-serif font-bold text-white italic">
+              Divine Soles
+            </h3>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">
+              Pure elegance in every step
+            </p>
+          </div>
+          <a
+            class="text-[10px] font-bold text-primary hover:tracking-widest transition-all uppercase flex items-center gap-1"
+            href="#"
+            >Ver Tudo
+            <span class="material-icons text-sm">chevron_right</span></a
+          >
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div
+            class="group bg-surface-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/40 transition-all duration-500 shadow-xl"
+          >
+            <div class="aspect-[4/5] relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=400"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <button
+                class="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white"
+              >
+                <span class="material-icons text-sm">favorite_border</span>
+              </button>
+              <div class="absolute bottom-2 left-2">
+                <span
+                  class="bg-wine-deep text-white text-[9px] font-bold px-2 py-1 rounded shadow-lg shadow-wine-deep/40 italic"
+                  >HOT</span
+                >
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex items-center gap-1 mb-1">
+                <span class="material-icons text-primary text-[14px]"
+                  >verified</span
+                >
+                <p
+                  class="text-[8px] uppercase font-black text-gray-500 tracking-tighter"
+                >
+                  Top Rated
+                </p>
+              </div>
+              <h4 class="font-serif font-bold text-white truncate italic">
+                Barefoot Grace
+              </h4>
+              <div class="flex justify-between items-center mt-2">
+                <p class="text-[9px] text-gray-500">@luna_love</p>
+                <span class="text-primary font-bold text-xs">$35.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <button
+        class="fixed bottom-28 right-6 w-14 h-14 wine-gradient-bg text-white rounded-full shadow-2xl shadow-wine-deep/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 border border-white/10"
+      >
+        <span class="material-icons text-3xl">add</span>
+      </button>
+
+      <nav
+        class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md md:max-w-4xl lg:max-w-6xl bg-white/90 dark:bg-surface-dark/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 py-4 px-10 flex justify-between items-center z-[90] rounded-t-3xl shadow-gold/10"
+      >
+        <a
+          href="home.html"
+          class="flex flex-col items-center text-gray-400 hover:text-primary transition-all"
+        >
+          <span class="material-icons">home</span>
+          <span
+            class="text-[9px] font-bold uppercase tracking-tighter hidden md:block"
+            >Home</span
+          >
+        </a>
+        <a href="category.html" class="flex flex-col items-center text-primary">
+          <span class="material-icons">grid_view</span>
+          <span
+            class="text-[9px] font-bold uppercase tracking-tighter hidden md:block"
+            >Categorias</span
+          >
+        </a>
+        <div class="relative -top-10 md:-top-12">
+          <button
+            class="bg-primary text-white h-14 w-14 md:h-16 md:w-16 rounded-full flex items-center justify-center shadow-2xl border-4 border-surface-light dark:border-surface-dark transform hover:scale-110 active:scale-95 transition-all"
+          >
+            <span class="material-icons text-3xl">add</span>
+          </button>
+        </div>
+        <a
+          href="#"
+          class="flex flex-col items-center text-gray-400 hover:text-secondary"
+        >
+          <span class="material-icons">chat_bubble_outline</span>
+          <span
+            class="text-[9px] font-bold uppercase tracking-tighter hidden md:block"
+            >Chat</span
+          >
+        </a>
+        <a
+          href="profile.html"
+          class="flex flex-col items-center text-gray-400 hover:text-secondary"
+        >
+          <span class="material-icons">person_outline</span>
+          <span
+            class="text-[9px] font-bold uppercase tracking-tighter hidden md:block"
+            >Perfil</span
+          >
+        </a>
+      </nav>
+    </div>
+
+    <script src="../js/modal-engine.js"></script>
+    <script src="../js/home.js"></script>
+  </body>
+</html>
